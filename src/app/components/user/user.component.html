@@ -1,0 +1,17 @@
+<!--Occupation se pasa desde app component con el @Input es unidireccional-->
+<h1>Hello {{username}}, you are a {{occupation}}</h1>
+@if (doesUserExist) {
+    <p>Congratulationes! you DO exist =)</p>
+} @else {
+    <p>We're sorry but we have doubts about your existence</p>
+}
+<h2>Your operating systems:</h2>
+<ul>
+    @for (os of operatingSystems; track os.id) {
+        <!--EVENT HANDLING CON LI-->
+        <li (mouseover)="onMouseOver(os.name)">{{os.name}}</li>
+    }
+</ul>
+<!--BINDING-->
+<div class="editable-div" [contentEditable]="isEditable"></div>
+<button (click)="emitToParent()">Message to parent</button>
